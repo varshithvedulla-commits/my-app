@@ -30,11 +30,16 @@ jobs:
       - name: Install Flet
         run: pip install flet
 
+      - name: Accept Android Licenses
+        run: yes | flutter doctor --android-licenses
+
       - name: Build APK
-        run: flet build apk --yes
+        working-directory: money app
+        run: flet build apk --yes --module-name main.py
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MoneyApp-APK
-          path: build/apk/**/*.apk
+          path: money app/build/apk/**/*.apk
+    

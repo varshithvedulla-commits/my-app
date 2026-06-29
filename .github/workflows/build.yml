@@ -34,7 +34,7 @@ jobs:
         run: yes | flutter doctor --android-licenses
 
       - name: Build APK
-        run: flet build apk --yes
+        run: flet build apk --yes --module-name main.py
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
